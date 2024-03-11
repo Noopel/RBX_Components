@@ -223,7 +223,7 @@ function ZoneModule:CreateZone(Position: Vector3, Properties: PropertyList.propL
 			
 			for Count = 1, TickAmount do
 				if VFX then --For client
-					EffectPlayer.runEffects(VFX, VFX.Size, newWidth)
+					EffectPlayer.runEffects(VFX, VFX.Size, newWidth, "Tick")
 				end
 				if ZonePart then --For server
 					for _, part in pairs(workspace:GetPartsInPart(ZonePart, Params)) do

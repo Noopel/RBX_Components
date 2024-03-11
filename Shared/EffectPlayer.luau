@@ -1,6 +1,6 @@
 local EffectPlayer = {}
 
-function EffectPlayer.runEffects(VFX, size: Vector3, radius: number, event: string)
+function EffectPlayer.runEffects(VFX, event: string, size: Vector3, radius: number)
 	local List
 	if type(VFX) == "table" then
 		List = VFX
@@ -18,6 +18,11 @@ function EffectPlayer.runEffects(VFX, size: Vector3, radius: number, event: stri
 					object.Enabled = false
 				end)
 			end
+
+			if object:GetAttribute("EmitDisable") then
+				object.Enabled = false
+			end
+
 			if object:GetAttribute("EmitCount") then
 				local EmitDelay = object:GetAttribute("EmitDelay") or 0
 
